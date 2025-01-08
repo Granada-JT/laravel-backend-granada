@@ -29,22 +29,18 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): \Illuminate\Http\JsonResponse
     {
-        // Attempt to authenticate the user
         if (!Auth::attempt($request->only('email', 'password'))) {
-            // If authentication fails, return a 401 Unauthorized response
             return response()->json([
                 'message' => 'Invalid credentials, please try again.',
-            ], 401); // 401 for Unauthorized
+            ], 401);
         }
     
-        // If authentication is successful, regenerate the session token
         $request->session()->regenerate();
     
-        // Return a JSON response with a success message and the redirect URL
         return response()->json([
             'message' => 'Login successful!',
             // 'redirect_url' => route('dashboard'),
-        ], 200); // 200 for OK
+        ], 200);
     }
     
     
@@ -64,6 +60,6 @@ class AuthenticatedSessionController extends Controller
         return response()->json([
             'message' => 'Logout successful!',
             // 'redirect_url' => '/',
-        ], 200); // 200 is the HTTP status code
+        ], 200);
     }
 }
