@@ -14,5 +14,4 @@ A simple Laravel-based backend with the following features:
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url> laravel-backend-granada
-   cd laravel-backend-granada
+   git clone git@github.com:Granada-JT/laravel-backend-granada.git
