@@ -9,8 +9,14 @@ class RoleSeeder extends Seeder
 {
     public function run()
     {
-        Role::create([
-            'name' => 'Admin',
-        ]);
+        Role::updateOrCreate(
+            ['name' => 'Admin'],
+            ['description' => 'Administrator role with full permissions.']
+        );
+
+        Role::updateOrCreate(
+            ['name' => 'User'],
+            ['description' => 'Regular user role.']
+        );
     }
 }

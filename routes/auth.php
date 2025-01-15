@@ -11,9 +11,9 @@ Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('lo
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    // User CRUD routes
     Route::apiResource('users', UserController::class);
 
-    // Role CRUD routes
+    Route::get('users/email/{email}', [UserController::class, 'findByEmail']);
+
     Route::apiResource('roles', RoleController::class);
 });
