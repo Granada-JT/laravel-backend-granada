@@ -17,7 +17,7 @@ class RoleController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255|unique:roles',
-            'description' => 'nullable|string|max:500',
+            'description' => 'required|string|max:500',
         ]);
 
         $role = Role::create($validated);
